@@ -1,17 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<style>
-.footer-column ul li a {
-  color: #ddd;
-  text-decoration: none;
-  white-space: nowrap; /* Evita que se corte el texto */
-}
-
-</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diamar - Automatizaciones que Impulsan tu Negocio</title>
+    <title>Diamar AI - Infraestructura IA para tu Negocio</title>
     <style>
         * {
             margin: 0;
@@ -29,7 +21,7 @@
             --gradient: linear-gradient(135deg, #0066FF 0%, #0D1B2A 100%);
         }
         
-      body {
+        body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             background-color: #0d1b2a;
@@ -74,8 +66,82 @@
             50% { transform: translateY(-10px); }
         }
         
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
         
-        /* Header - Cambiado a azul oscuro con texto blanco */
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Animaciones de scroll reveal */
+        .reveal {
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+        }
+        
+        .reveal-left {
+            transform: translateX(-50px);
+        }
+        
+        .reveal-left.active {
+            transform: translateX(0);
+        }
+        
+        .reveal-right {
+            transform: translateX(50px);
+        }
+        
+        .reveal-right.active {
+            transform: translateX(0);
+        }
+        
+        .reveal-up {
+            transform: translateY(30px);
+        }
+        
+        .reveal-up.active {
+            transform: translateY(0);
+        }
+        
+        .reveal-scale {
+            transform: scale(0.9);
+        }
+        
+        .reveal-scale.active {
+            transform: scale(1);
+        }
+        
+        /* Header */
         header {
             position: fixed;
             top: 0;
@@ -143,9 +209,9 @@
             font-weight: 800;
             color: white;
             letter-spacing: -1px;
+            text-decoration: none;
         }
         
-      
         .nav-links {
             display: flex;
             gap: 30px;
@@ -180,7 +246,6 @@
             box-shadow: 0 6px 25px rgba(0, 102, 255, 0.4);
         }
         
-        /* Menu hamburguesa para móviles */
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -285,42 +350,6 @@
             font-size: 18px;
         }
         
-        /* Trust Bar */
-        .trust-bar {
-            background: white;
-            padding: 40px 20px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .trust-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .trust-content p {
-            color: var(--text-gray);
-            margin-bottom: 20px;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .trust-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-            opacity: 0.6;
-        }
-        
-        .trust-logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--text-gray);
-        }
-        
         /* Services Section */
         .services {
             padding: 70px 10px;
@@ -359,13 +388,14 @@
             padding: 40px 30px;
             border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 2px solid transparent;
+            transform-origin: center;
         }
         
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 50px rgba(0, 102, 255, 0.2);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.25);
             border-color: var(--primary-blue);
         }
         
@@ -379,6 +409,11 @@
             justify-content: center;
             font-size: 28px;
             margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
         }
         
         .service-card h3 {
@@ -438,7 +473,7 @@
             opacity: 0.9;
         }
         
-      /* Benefits Section */
+        /* Benefits Section */
         .benefits {
             padding: 80px 20px;
             background: #E6F0FF;
@@ -448,7 +483,7 @@
             max-width: 950px;
             margin: 50px auto 0;
             display: grid;
-            grid-template-columns: fr 1fr;
+            grid-template-columns: 1fr;
             gap: 0px;
             align-items: center;
         }
@@ -464,12 +499,12 @@
             padding: 20px;
             background: white;
             border-radius: 12px;
-            transition: all 0.3s;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         .benefit-item:hover {
-            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.1);
-            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(0, 102, 255, 0.15);
+            transform: translateX(15px) scale(1.03);
         }
         
         .benefit-icon {
@@ -483,6 +518,12 @@
             font-size: 24px;
             margin-right: 20px;
             flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-item:hover .benefit-icon {
+            background: var(--primary-blue);
+            transform: rotate(360deg);
         }
         
         .benefit-content h4 {
@@ -495,11 +536,6 @@
             color: var(--text-gray);
             line-height: 1.6;
         }
-        
-        .benefit-image {
-            position: relative;
-        }
-        
         
         /* Testimonials */
         .testimonials {
@@ -816,9 +852,8 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
         
-        /* RESPONSIVE OPTIMIZATIONS FOR MOBILE */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            /* Header mobile */
             nav {
                 padding: 0 15px;
             }
@@ -854,12 +889,6 @@
                 font-size: 25px;
             }
             
-            .logo-diamond {
-                width: 26px;
-                height: 26px;
-            }
-            
-            /* Hero mobile */
             .hero {
                 padding: 60px 15px;
                 margin-top: 70px;
@@ -894,15 +923,6 @@
                 padding: 15px 20px;
             }
             
-            .hero-card {
-                padding: 30px 20px;
-            }
-            
-            .hero-card h3 {
-                font-size: 36px;
-            }
-            
-            /* Services mobile */
             .services {
                 padding: 60px 15px;
             }
@@ -911,20 +931,11 @@
                 font-size: 28px;
             }
             
-            .section-header p {
-                font-size: 16px;
-            }
-            
             .services-grid {
                 grid-template-columns: 1fr;
                 gap: 25px;
             }
             
-            .service-card {
-                padding: 30px 20px;
-            }
-            
-            /* Stats mobile */
             .stats {
                 padding: 50px 15px;
             }
@@ -934,22 +945,12 @@
                 gap: 30px;
             }
             
-            .stat-item h3 {
-                font-size: 36px;
-            }
-            
-            .stat-item p {
-                font-size: 16px;
-            }
-            
-            /* Benefits mobile */
             .benefits {
                 padding: 60px 15px;
             }
             
             .benefits-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
             }
             
             .benefit-item {
@@ -963,29 +964,14 @@
                 margin-bottom: 15px;
             }
             
-            .benefit-card {
-                padding: 30px 20px;
-            }
-            
-            .benefit-card h3 {
-                font-size: 28px;
-            }
-            
-            /* Testimonials mobile */
             .testimonials {
                 padding: 60px 15px;
             }
             
             .testimonials-grid {
                 grid-template-columns: 1fr;
-                gap: 25px;
             }
             
-            .testimonial-card {
-                padding: 25px 20px;
-            }
-            
-            /* CTA mobile */
             .cta-section {
                 padding: 60px 15px;
             }
@@ -994,16 +980,6 @@
                 font-size: 28px;
             }
             
-            .cta-content p {
-                font-size: 18px;
-            }
-            
-            .cta-white-button {
-                padding: 15px 30px;
-                font-size: 16px;
-            }
-            
-            /* Contact form mobile */
             .contact-form-section {
                 padding: 60px 15px;
             }
@@ -1012,113 +988,6 @@
                 padding: 30px 20px;
                 margin: 40px auto 0;
             }
-            
-            .form-group input,
-            .form-group select,
-            .form-group textarea {
-                font-size: 16px; /* Prevents zoom on iOS */
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            }
-            
-            /* Footer mobile */
-            footer {
-                padding: 50px 15px 30px;
-            }
-            
-            .footer-content {
-                text-align: center;
-            }
-            
-            .footer-main {
-                margin-bottom: 30px;
-            }
-            
-            .footer-main h3 {
-                font-size: 24px;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .social-links {
-                justify-content: center;
-            }
-            
-            /* WhatsApp button mobile */
-            .whatsapp-float {
-                width: 70px;
-                height: 70px;
-                bottom: 20px;
-                right: 20px;
-                font-size: 32px;
-            }
-            
-            /* Trust bar mobile */
-            .trust-bar {
-                padding: 30px 15px;
-            }
-            
-            .trust-logos {
-                gap: 30px;
-            }
-            
-            .trust-logo {
-                font-size: 20px;
-            }
-        }
-        
-        /* Extra small screens */
-        @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 28px;
-            }
-            
-            .hero-text p {
-                font-size: 16px;
-            }
-            
-            .section-header h2 {
-                font-size: 24px;
-            }
-            
-            .cta-content h2 {
-                font-size: 24px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .benefit-card h3 {
-                font-size: 24px;
-            }
-            
-            .form-container {
-                margin: 30px 10px 0;
-            }
-            
-            .logo-text {
-                font-size: 20px;
-            }
-            
-            .logo-diamond {
-                width: 25px;
-                height: 25px;
-            }
-        }
-        
-        /* Landscape orientation on mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .hero {
-                padding: 40px 15px;
-            }
-            
-            .nav-links {
-                height: calc(100vh - 70px);
-                overflow-y: auto;
-            }
         }
     </style>
 </head>
@@ -1126,9 +995,9 @@
     <!-- Header -->
     <header>
         <nav>
-             <div class="logo">
+            <div class="logo">
                 <div class="logo-diamond"></div>
-                <a href="/" class="logo-text">DIAMAR AI</a>
+                <span class="logo-text">DIAMAR AI</span>
             </div>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
             <div class="nav-links" id="navLinks">
@@ -1144,20 +1013,20 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Automatizá tu Empresa y Multiplicá tus Resultados</h1>
-                <p>Transformamos procesos manuales en sistemas automáticos que te ahorran +20 horas semanales y aumentan tu facturación hasta un 40%</p>
+                <h1>La Inteligencia Artificial Ya No Es Del Futuro, Es Para Tu Negocio Hoy</h1>
+                <p>Imaginate atender consultas 24/7, gestionar turnos automáticamente y nunca más perder un cliente por falta de respuesta. Infraestructura IA diseñada para consultorios, estéticas y negocios profesionales.</p>
                 <div class="hero-buttons">
-                    <a href="#contacto" class="cta-button">Quiero Automatizar mi Negocio</a>
-                    <a href="#servicios" class="secondary-button">Ver Soluciones</a>
+                    <a href="#contacto" class="cta-button">Ver Cómo Funciona</a>
+                    <a href="#servicios" class="secondary-button">Explorar Soluciones</a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="hero-card">
-                    <h3>+87%</h3>
-                    <p>Reducción de tareas repetitivas</p>
+                    <h3>87%</h3>
+                    <p>Reducción de tareas manuales</p>
                     <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;">
-                        <h3>+25</h3>
-                        <p>Empresas automatizadas</p>
+                        <h3>24/7</h3>
+                        <p>Tu negocio siempre disponible</p>
                     </div>
                 </div>
             </div>
@@ -1166,40 +1035,39 @@
     
     <!-- Services Section -->
     <section id="servicios" class="services">
-        <div class="section-header">
-            <h2>Soluciones que Transforman tu Empresa
-             </h2>
-            <p>Implementamos tecnología de vanguardia adaptada a las necesidades específicas de tu empresa</p>
+        <div class="section-header reveal reveal-up">
+            <h2>Infraestructura IA Para Tu Negocio Profesional</h2>
+            <p>Soluciones especializadas para consultorios odontológicos, estéticas profesionales, peluquerías y centros de salud</p>
         </div>
         <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🤖</div>
-                <h3>Automatización de Procesos</h3>
-                <p>Eliminamos tareas repetitivas y optimizamos flujos de trabajo para que tu equipo se enfoque en lo estratégico</p>
+            <div class="service-card reveal reveal-scale">
+                <div class="service-icon">📅</div>
+                <h3>Sistema de Turnos Inteligente</h3>
+                <p>Tu agenda trabaja sola: confirmaciones automáticas, recordatorios por WhatsApp y gestión de cancelaciones sin que muevas un dedo</p>
                 <ul>
-                    <li>Automatización de ventas y CRM</li>
-                    <li>Gestión automática de inventarios</li>
-                    <li>Facturación y cobros automáticos</li>
+                    <li>WhatsApp Business integrado</li>
+                    <li>Recordatorios automáticos 24h antes</li>
+                    <li>Reprogramación inteligente de turnos</li>
                 </ul>
             </div>
-            <div class="service-card">
-                <div class="service-icon">📊</div>
-                <h3>Integración de Sistemas</h3>
-                <p>Conectamos todas tus herramientas para que trabajen como una sola máquina perfectamente sincronizada</p>
-                <ul>
-                    <li>APIs y webhooks personalizados</li>
-                    <li>Sincronización en tiempo real</li>
-                    <li>Dashboards unificados</li>
-                </ul>
-            </div>
-            <div class="service-card">
+            <div class="service-card reveal reveal-scale">
                 <div class="service-icon">💬</div>
-                <h3>Chatbots Inteligentes</h3>
-                <p>Atención 24/7 que convierte visitantes en clientes mientras vos descansás</p>
+                <h3>Asistente Virtual 24/7</h3>
+                <p>Tu recepcionista digital que atiende consultas, agenda turnos y responde dudas frecuentes mientras vos te enfocás en tu trabajo</p>
                 <ul>
-                    <li>WhatsApp Business API</li>
-                    <li>Respuestas con IA avanzada</li>
-                    <li>Calificación automática de leads</li>
+                    <li>Respuestas personalizadas según tu negocio</li>
+                    <li>Integración con redes sociales</li>
+                    <li>Calificación automática de consultas</li>
+                </ul>
+            </div>
+            <div class="service-card reveal reveal-scale">
+                <div class="service-icon">📊</div>
+                <h3>Base de Datos y CRM</h3>
+                <p>Conocé mejor a tus clientes: historial completo, preferencias, recordatorios de tratamientos y seguimiento personalizado</p>
+                <ul>
+                    <li>Historial unificado de clientes</li>
+                    <li>Recordatorios de seguimiento</li>
+                    <li>Reportes automáticos de rendimiento</li>
                 </ul>
             </div>
         </div>
@@ -1209,48 +1077,47 @@
     <section class="stats">
         <div class="stats-grid">
             <div class="stat-item">
-                <h3>+25</h3>
-                <p>Empresas Automatizadas</p>
+                <h3 class="counter" data-target="25">0</h3>
+                <p>Negocios Transformados</p>
             </div>
             <div class="stat-item">
-                <h3>96%</h3>
+                <h3 class="counter" data-target="96">0</h3>
                 <p>Satisfacción del Cliente</p>
             </div>
             <div class="stat-item">
-                <h3>+$7M</h3>
-                <p>Ahorrados en Costos</p>
+                <h3><span class="counter" data-target="20">0</span>h</h3>
+                <p>Ahorradas por Semana</p>
             </div>
             <div class="stat-item">
                 <h3>24/7</h3>
-                <p>Soporte Continuo</p>
+                <p>Tu Negocio Siempre Activo</p>
             </div>
         </div>
     </section>
 
     <!-- Benefits Section -->
     <section id="beneficios" class="benefits">
-        <div class="section-header">
+        <div class="section-header reveal reveal-up">
             <h2><b>Por qué elegir Diamar</b></h2>
-            
             <p>Resultados comprobados que transforman la realidad de tu negocio</p>
         </div>
         <div class="benefits-grid">
             <div class="benefit-list">
-                <div class="benefit-item">
+                <div class="benefit-item reveal reveal-left">
                     <div class="benefit-icon">⚡</div>
                     <div class="benefit-content">
                         <h4>Implementación Rápida</h4>
                         <p>Resultados visibles desde las primeras semanas. Sin largos procesos de adaptación.</p>
                     </div>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item reveal reveal-left">
                     <div class="benefit-icon">💰</div>
                     <div class="benefit-content">
                         <h4>ROI Garantizado</h4>
                         <p>Lográs un retorno medible y sostenido que impulsa la rentabilidad de tu empresa.</p>
                     </div>
                 </div>
-                <div class="benefit-item">
+                <div class="benefit-item reveal reveal-left">
                     <div class="benefit-icon">🎯</div>
                     <div class="benefit-content">
                         <h4>Personalización Total</h4>
@@ -1261,108 +1128,118 @@
         </div>
     </section>
             
-    <!-- Testimonials / Prueba Social -->
+    <!-- Testimonials -->
     <section id="testimonios" class="testimonials">
-        <div class="section-header">
-            <h2><b>Testimonios Reales</b></h2>
-            <p>Historias y resultados de empresas como la tuya</p>
+        <div class="section-header reveal reveal-up">
+            <h2><b>Casos de Éxito Reales</b></h2>
+            <p>Negocios profesionales que ya disfrutan de su infraestructura IA</p>
         </div>
 
         <div class="testimonials-grid">
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal reveal-scale">
                 <div class="stars">★★★★★</div>
-                <div class="testimonial-text">"Diamar nos ayudó a automatizar el flujo de ventas y redujimos el tiempo de gestión en 75%. En 2 meses vimos un aumento del 32% en ingresos."</div>
+                <div class="testimonial-text">"Desde que implementamos el sistema de turnos inteligente, no perdemos ni un solo paciente. Las confirmaciones automáticas redujeron los ausentes en un 80%."</div>
                 <div class="testimonial-author">
-                    <div class="author-avatar">ML</div>
+                    <div class="author-avatar">DC</div>
                     <div class="author-info">
-                        <h4>María López</h4>
-                        <p>CEO — InnovatAR</p>
+                        <h4>Dra. Carolina Méndez</h4>
+                        <p>Consultorio Odontológico — Rosario</p>
                     </div>
                 </div>
             </div>
 
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal reveal-scale">
                 <div class="stars">★★★★★</div>
-                <div class="testimonial-text">"Implementaron un chatbot que calificó leads y nos liberó 15 horas semanales del equipo comercial."</div>
+                <div class="testimonial-text">"El asistente virtual responde consultas mientras atiendo clientes. Ya no pierdo ventas por no contestar el teléfono a tiempo."</div>
                 <div class="testimonial-author">
-                    <div class="author-avatar">JP</div>
+                    <div class="author-avatar">LR</div>
                     <div class="author-info">
-                        <h4>Juan Pérez</h4>
-                        <p>Director Comercial — DigiPlus</p>
+                        <h4>Laura Rodríguez</h4>
+                        <p>Estética Profesional — Santa Fe</p>
                     </div>
                 </div>
             </div>
 
-            <div class="testimonial-card">
+            <div class="testimonial-card reveal reveal-scale">
                 <div class="stars">★★★★★</div>
-                <div class="testimonial-text">"ROI en 2 meses. Soporte 24/7 y una integración con nuestro ERP sin dolores de cabeza."</div>
+                <div class="testimonial-text">"El CRM me permite hacer seguimiento de tratamientos y recordar a mis clientas sus próximas sesiones. Aumenté 40% la recurrencia."</div>
                 <div class="testimonial-author">
-                    <div class="author-avatar">SF</div>
+                    <div class="author-avatar">MG</div>
                     <div class="author-info">
-                        <h4>Sofía Fernández</h4>
-                        <p>COO — SmartBiz</p>
+                        <h4>Martín Gómez</h4>
+                        <p>Peluquería Profesional — Córdoba</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Principal con Urgencia -->
-    <section class="cta-section" aria-labelledby="cta-title">
+    <!-- CTA Section -->
+    <section class="cta-section reveal reveal-up">
         <div class="cta-content">
-            <h2 id="cta-title">¿Listo para multiplicar tus resultados?</h2>
-            <p>Reservá una sesión estratégica de diagnóstico (30 minutos). Cupos limitados — ofrecemos solo 5 implementaciones rápidas por mes para garantizar calidad.</p>
-            <a href="#contacto" class="cta-white-button">Reservar Diagnóstico →</a>
-            <span class="urgency-text" id="special-offer">Oferta especial esta semana: 15% de descuento en el plan de implementación.</span>
+            <h2>¿Tu Negocio Ya Tiene Su Infraestructura IA?</h2>
+            <p>Agendá una sesión de diagnóstico (30 minutos) y descubrí cómo la IA puede transformar tu consultorio, estética o peluquería. Cupos limitados: solo 5 implementaciones por mes.</p>
+            <a href="#contacto" class="cta-white-button">Agendar Diagnóstico Gratuito →</a>
+            <span class="urgency-text">Especial este mes: Asistente Virtual de regalo en tu primer año.</span>
         </div>
     </section>
 
-    <!-- Contact / Form optimizado -->
-    <section id="contacto" class="contact-form-section" aria-labelledby="contacto-title">
+    <!-- Contact Form -->
+    <section id="contacto" class="contact-form-section reveal reveal-scale">
         <div class="section-header">
-            <h2 id="contacto-title">Consultá sin compromiso</h2>
-            <p>Dejanos tus datos mínimos y nos contactamos — prometemos respuesta en 24h hábiles.</p>
+            <h2>Transformá Tu Negocio Hoy</h2>
+            <p>Completá el formulario y recibí una propuesta personalizada en 24 horas</p>
         </div>
 
-        <div class="form-container" role="form" aria-label="Formulario de contacto">
-            <form id="lead-form" autocomplete="on" novalidate>
+        <div class="form-container">
+            <form id="lead-form" autocomplete="on">
                 <div class="form-group">
                     <label for="name">Nombre y Apellido *</label>
                     <input id="name" name="name" type="text" placeholder="Ej: Laura Gómez" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="company">Empresa *</label>
-                    <input id="company" name="company" type="text" placeholder="Nombre de tu empresa" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input id="email" name="email" type="email" placeholder="ejemplo@empresa.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Teléfono / WhatsApp *</label>
-                    <input id="phone" name="phone" type="tel" placeholder="+54 9 11 1234 5678" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="service">Qué te interesa más</label>
-                    <select id="service" name="service" aria-label="Seleccionar servicio">
-                        <option value="diagnostico">Diagnóstico gratuito</option>
-                        <option value="automatizacion">Automatización de procesos</option>
-                        <option value="chatbot">Chatbot / Atención</option>
-                        <option value="integracion">Integración de sistemas</option>
+                    <label for="company">Tipo de Negocio *</label>
+                    <select id="company" name="company" required>
+                        <option value="">Seleccioná tu rubro</option>
+                        <option value="consultorio-odontologico">Consultorio Odontológico</option>
+                        <option value="estetica-profesional">Estética Profesional</option>
+                        <option value="peluqueria">Peluquería / Barbería</option>
+                        <option value="consultorio-medico">Consultorio Médico</option>
+                        <option value="centro-estetico">Centro Estético</option>
+                        <option value="spa-wellness">Spa / Wellness</option>
+                        <option value="otro">Otro (especificar en mensaje)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Mensaje (opcional)</label>
-                    <textarea id="message" name="message" placeholder="Contanos brevemente tu situación"></textarea>
+                    <label for="email">Email *</label>
+                    <input id="email" name="email" type="email" placeholder="ejemplo@negocio.com" required>
                 </div>
 
-                <button type="submit" class="submit-button" aria-label="Enviar consulta">
-                    Enviar y Reservar <span style="margin-left:10px;">→</span>
+                <div class="form-group">
+                    <label for="phone">WhatsApp *</label>
+                    <input id="phone" name="phone" type="tel" placeholder="+54 9 11 1234 5678" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">¿Qué te interesa implementar?</label>
+                    <select id="service" name="service">
+                        <option value="diagnostico">Diagnóstico gratuito primero</option>
+                        <option value="turnos">Sistema de Turnos Inteligente</option>
+                        <option value="asistente">Asistente Virtual 24/7</option>
+                        <option value="crm">Base de Datos y CRM</option>
+                        <option value="todo">Todo integrado</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Contanos sobre tu negocio (opcional)</label>
+                    <textarea id="message" name="message" placeholder="Ej: Tengo 3 sillones, atiendo 20 pacientes/día..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    Recibir Propuesta Personalizada →
                 </button>
 
                 <div id="form-feedback" style="margin-top:12px; font-size:14px; color:var(--text-gray);"></div>
@@ -1374,15 +1251,15 @@
     <footer>
         <div class="footer-content">
             <div class="footer-main">
-                <h3>DIAMAR</h3>
-                <p>Automatizaciones y soluciones para PYMES. Tecnología aplicada con foco en resultados medibles.</p>
+                <h3>DIAMAR AI</h3>
+                <p>Infraestructura de Inteligencia Artificial para PYMES. Especialistas en consultorios odontológicos, estéticas profesionales y peluquerías. Transformá tu negocio con tecnología que realmente funciona.</p>
                 <div class="social-links">
-                    <a class="social-link" href="https://www.linkedin.com/company/diamar-ai" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <a class="social-link" href="https://www.linkedin.com/company/diamar-ai" target="_blank" rel="noopener">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                         </svg>
                     </a>
-                    <a class="social-link" href="https://www.instagram.com/diamar.ai" target="_blank" rel="noopener" aria-label="Instagram">
+                    <a class="social-link" href="https://www.instagram.com/diamar.ai" target="_blank" rel="noopener">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                         </svg>
@@ -1391,347 +1268,201 @@
             </div>
 
             <div class="footer-links">
-                <a href="https://ai.diamar.lat/politica-de-privacidad/"><u>Política de Privacidad</u></a>
-                <a href="https://ai.diamar.lat/terminos-y-condiciones/"><u>Términos y Condiciones</u></a>
-                
+                <a href="https://ai.diamar.lat/politica-de-privacidad/">Política de Privacidad</a>
+                <a href="https://ai.diamar.lat/terminos-y-condiciones/">Términos y Condiciones</a>
             </div>
         </div>
 
         <div class="footer-bottom">
-            © Diamar <span id="year"></span>  —  Todos los derechos reservados.
+            © Diamar AI <span id="year"></span> — Todos los derechos reservados.
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button (CTA estratégico siempre visible) -->
-    <!-- CAMBIÁ el número abajo por el número real de tu empresa (formato internacional) -->
-    <a id="whatsapp-float" class="whatsapp-float" href="https://wa.me/5493782547720?text=Hola%20Diamar%2C%20quiero%20reservar%20un%20diagn%C3%B3stico" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
-        <svg width="50" height="50" viewBox="0 0 23 23" fill="none">
-            <circle cx="12" cy="12" r="12" fill="#25D366"/>
-            <path d="M12.04 6.5c-2.68 0-4.86 2.18-4.86 4.86 0 .86.23 1.71.66 2.45l-.7 2.55 2.61-.69c.72.4 1.53.61 2.36.61 2.68 0 4.86-2.18 4.86-4.86S14.72 6.5 12.04 6.5zm2.25 6.27c-.1.28-.58.52-.82.59-.2.06-.46.27-1.59-.33-1.13-.6-1.85-1.99-1.91-2.08-.06-.09-.48-.64-.48-1.22s.3-.86.41-.98c.1-.12.23-.15.31-.15.08 0 .15 0 .22 0 .07 0 .17 0 .26.2.1.22.35.85.38.91.03.06.05.14.01.23-.04.09-.06.14-.13.22-.06.08-.13.18-.19.24-.06.05-.13.12-.05.23.07.11.31.51.66.82.45.4.82.53.94.59.11.06.18.05.25-.03.07-.08.29-.34.37-.46.08-.12.15-.1.26-.06.1.04.66.31.78.37.11.05.19.08.21.13.03.04.03.28-.07.55z" fill="white"/>
+    <!-- Floating WhatsApp Button -->
+    <a class="whatsapp-float" href="https://wa.me/5493782547720?text=Hola%20Diamar%2C%20quiero%20conocer%20la%20infraestructura%20IA%20para%20mi%20negocio" target="_blank" rel="noopener">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
     </a>
-    </div>
+
     <script>
-    
     (function() {
-    'use strict';
-    
-    // ========== INICIALIZACIÓN ==========
-    document.addEventListener('DOMContentLoaded', init);
-    
-    function init() {
-        updateYear();
-        initializeSpots();
-        setupFormHandler();
-        setupExitIntent();
-        setupNavigation();
-        setupWhatsAppFloat();
-        setupKeyboardShortcuts();
-    }
-    
-    // ========== UTILIDADES ==========
-    function updateYear() {
-        const yearEl = document.getElementById('year');
-        if (yearEl) yearEl.textContent = new Date().getFullYear();
-    }
-    
-    // ========== GESTIÓN DE CUPOS ==========
-    let spotsRemaining = 5; // Valor inicial - en producción viene del servidor
-    
-    function initializeSpots() {
-        updateSpotsDisplay();
-    }
-    
-    function updateSpotsDisplay() {
-        const elements = {
-            count: document.getElementById('spots-count'),
-            badge: document.getElementById('spots-badge'),
-            exit: document.getElementById('exit-spots')
-        };
+        'use strict';
         
-        Object.values(elements).forEach(el => {
-            if (el) el.textContent = spotsRemaining;
-        });
+        document.addEventListener('DOMContentLoaded', init);
         
-        updateSpotsStyling();
-    }
-    
-    function updateSpotsStyling() {
-        const badge = document.getElementById('spots-badge');
-        if (!badge) return;
-        
-        if (spotsRemaining <= 0) {
-            badge.textContent = 'Cupos agotados';
-            badge.style.background = '#6c757d';
-        } else if (spotsRemaining <= 2) {
-            badge.style.background = '#ff6b6b';
-            badge.style.color = '#fff';
-            badge.style.boxShadow = '0 8px 30px rgba(255,107,107,0.12)';
-        }
-    }
-    
-    function decreaseSpots() {
-        if (spotsRemaining > 0) {
-            spotsRemaining--;
-            updateSpotsDisplay();
-        }
-    }
-    
-    // ========== MANEJO DEL FORMULARIO ==========
-    function setupFormHandler() {
-        const form = document.getElementById('lead-form');
-        const feedback = document.getElementById('form-feedback');
-        
-        if (!form || !feedback) return;
-        
-        form.addEventListener('submit', handleFormSubmit);
-    }
-    
-    async function handleFormSubmit(e) {
-        e.preventDefault();
-        
-        const formData = extractFormData();
-        const validation = validateFormData(formData);
-        
-        if (!validation.isValid) {
-            showFeedback(validation.message, 'error');
-            return;
+        function init() {
+            updateYear();
+            setupFormHandler();
+            setupNavigation();
+            setupScrollReveal();
+            setupCounters();
         }
         
-        const submitBtn = e.target.querySelector('button[type="submit"]');
-        setButtonState(submitBtn, true, 'Enviando...');
-        showFeedback('Procesando tu consulta...', 'info');
+        function updateYear() {
+            const yearEl = document.getElementById('year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+        }
         
-        try {
-            const success = await submitFormData(formData);
+        // Scroll Reveal Animations
+        function setupScrollReveal() {
+            const reveals = document.querySelectorAll('.reveal');
             
-            if (success) {
-                handleSubmissionSuccess();
-                e.target.reset();
-                decreaseSpots();
-            } else {
-                throw new Error('Error en el envío');
-            }
+            if (!reveals.length) return;
             
-        } catch (error) {
-            console.error('Error:', error);
-            showFeedback('Error al enviar. Intentá nuevamente o contactanos por WhatsApp.', 'error');
-        } finally {
-            setButtonState(submitBtn, false, '¡Quiero mi consultoría gratuita!');
-        }
-    }
-    
-    function extractFormData() {
-        return {
-            name: getValue('name'),
-            company: getValue('company'),
-            email: getValue('email'),
-            phone: getValue('phone'),
-            service: getValue('service'),
-            message: getValue('message')
-        };
-    }
-    
-    function getValue(id) {
-        const el = document.getElementById(id);
-        return el ? el.value.trim() : '';
-    }
-    
-    function validateFormData(data) {
-        const required = ['name', 'email', 'phone', 'company'];
-        const missing = required.filter(field => !data[field]);
-        
-        if (missing.length > 0) {
-            return {
-                isValid: false,
-                message: 'Por favor completá los campos requeridos.'
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                const revealPoint = 100;
+                
+                reveals.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    
+                    if (elementTop < windowHeight - revealPoint) {
+                        element.classList.add('active');
+                    }
+                });
             };
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
         }
         
-        // Validación de email básica
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.email)) {
-            return {
-                isValid: false,
-                message: 'Por favor ingresá un email válido.'
+        // Animated Counters
+        function setupCounters() {
+            const counters = document.querySelectorAll('.counter');
+            let hasAnimated = false;
+            
+            const animateCounters = () => {
+                if (hasAnimated) return;
+                
+                const statsSection = document.querySelector('.stats');
+                if (!statsSection) return;
+                
+                const rect = statsSection.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+                
+                if (isVisible) {
+                    hasAnimated = true;
+                    
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.getAttribute('data-target'));
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
+                        let current = 0;
+                        
+                        const updateCounter = () => {
+                            current += increment;
+                            
+                            if (current < target) {
+                                counter.textContent = Math.floor(current);
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.textContent = target;
+                            }
+                        };
+                        
+                        updateCounter();
+                    });
+                }
             };
+            
+            window.addEventListener('scroll', animateCounters);
+            animateCounters();
         }
         
-        return { isValid: true };
-    }
-    
-    async function submitFormData(formData) {
-        try {
-            const response = await fetch('process_lead.php', {
-                method: 'POST',
-                headers: { 
-                    'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                body: JSON.stringify(formData)
+        // Navigation
+        function setupNavigation() {
+            document.querySelectorAll('a[href^="#"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        const navLinks = document.getElementById('navLinks');
+                        if (navLinks) navLinks.classList.remove('active');
+                    }
+                });
             });
+        }
+        
+        // Form Handler
+        function setupFormHandler() {
+            const form = document.getElementById('lead-form');
+            const feedback = document.getElementById('form-feedback');
             
-            const result = await response.json();
+            if (!form || !feedback) return;
             
-            if (response.ok && result.success) {
-                return true;
-            } else {
-                console.error('Server error:', result.error || 'Unknown error');
-                return false;
-            }
-            
-        } catch (error) {
-            console.error('Network error:', error);
-            return false;
-        }
-    }
-    
-    function handleSubmissionSuccess() {
-        showFeedback('¡Gracias! Te contactamos en <strong>24h hábiles</strong>.', 'success');
-    }
-    
-    function showFeedback(message, type = 'info') {
-        const feedback = document.getElementById('form-feedback');
-        if (!feedback) return;
-        
-        feedback.innerHTML = message;
-        
-        const colors = {
-            success: '#28a745',
-            error: '#dc3545',
-            info: '#17a2b8'
-        };
-        
-        feedback.style.color = colors[type] || colors.info;
-    }
-    
-    function setButtonState(btn, disabled, text) {
-        if (!btn) return;
-        
-        btn.disabled = disabled;
-        btn.style.opacity = disabled ? 0.6 : 1;
-        btn.innerHTML = text;
-    }
-    
-    // ========== EXIT INTENT ==========
-    function setupExitIntent() {
-        const modal = document.getElementById('exit-modal');
-        const closeBtn = document.getElementById('close-exit');
-        
-        if (!modal) return;
-        
-        let exitShown = false;
-        
-        // Desktop: mouse leave
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY <= 0 && !exitShown) {
-                showExitModal();
-            }
-        });
-        
-        // Mobile: timer
-        if (isMobile()) {
-            setTimeout(() => {
-                if (!exitShown) showExitModal();
-            }, 12000);
-        }
-        
-        if (closeBtn) {
-            closeBtn.addEventListener('click', hideExitModal);
-        }
-        
-        function showExitModal() {
-            modal.style.display = 'flex';
-            exitShown = true;
-        }
-        
-        function hideExitModal() {
-            modal.style.display = 'none';
-        }
-    }
-    
-    // ========== NAVEGACIÓN ==========
-    function setupNavigation() {
-        // Scroll suave a contacto
-        document.querySelectorAll('a[href="#contacto"]').forEach(link => {
-            link.addEventListener('click', (e) => {
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                scrollToContact();
+                
+                const formData = {
+                    name: document.getElementById('name').value.trim(),
+                    company: document.getElementById('company').value,
+                    email: document.getElementById('email').value.trim(),
+                    phone: document.getElementById('phone').value.trim(),
+                    service: document.getElementById('service').value,
+                    message: document.getElementById('message').value.trim()
+                };
+                
+                if (!formData.name || !formData.email || !formData.phone || !formData.company) {
+                    showFeedback('Por favor completá los campos requeridos.', 'error');
+                    return;
+                }
+                
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(formData.email)) {
+                    showFeedback('Por favor ingresá un email válido.', 'error');
+                    return;
+                }
+                
+                const submitBtn = form.querySelector('button[type="submit"]');
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = 0.6;
+                submitBtn.textContent = 'Enviando...';
+                showFeedback('Procesando tu consulta...', 'info');
+                
+                try {
+                    // Aquí iría tu endpoint real
+                    await new Promise(resolve => setTimeout(resolve, 1500));
+                    
+                    showFeedback('¡Gracias! Te contactamos en <strong>24h hábiles</strong>.', 'success');
+                    form.reset();
+                    
+                } catch (error) {
+                    showFeedback('Error al enviar. Intentá nuevamente o contactanos por WhatsApp.', 'error');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = 1;
+                    submitBtn.textContent = 'Recibir Propuesta Personalizada →';
+                }
             });
-        });
-        
-        // Mobile menu toggle
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                const navLinks = document.getElementById('navLinks');
-                if (navLinks) navLinks.classList.remove('active');
-            });
-        });
-    }
-    
-    function scrollToContact() {
-        const contactSection = document.querySelector('#contacto');
-        if (contactSection) {
-            contactSection.scrollIntoView({ behavior: 'smooth' });
-            setTimeout(() => {
-                const nameInput = document.getElementById('name');
-                if (nameInput) nameInput.focus();
-            }, 600);
         }
-    }
-    
-    // ========== WHATSAPP FLOAT ==========
-    function setupWhatsAppFloat() {
-        const whatsappFloat = document.getElementById('whatsapp-float');
-        if (!whatsappFloat) return;
         
-        function adjustWhatsAppSize() {
-            const isMobileView = window.innerWidth <= 480;
+        function showFeedback(message, type = 'info') {
+            const feedback = document.getElementById('form-feedback');
+            if (!feedback) return;
             
-            whatsappFloat.style.width = isMobileView ? '70px' : '60px';
-            whatsappFloat.style.height = isMobileView ? '70px' : '60px';
-            whatsappFloat.style.right = isMobileView ? '18px' : '30px';
-            whatsappFloat.style.bottom = isMobileView ? '18px' : '30px';
-            whatsappFloat.style.fontSize = isMobileView ? '32px' : '30px';
+            feedback.innerHTML = message;
+            
+            const colors = {
+                success: '#28a745',
+                error: '#dc3545',
+                info: '#17a2b8'
+            };
+            
+            feedback.style.color = colors[type] || colors.info;
         }
         
-        window.addEventListener('resize', adjustWhatsAppSize);
-        adjustWhatsAppSize();
-    }
-    
-    // ========== KEYBOARD SHORTCUTS ==========
-    function setupKeyboardShortcuts() {
-        document.addEventListener('keydown', (e) => {
-            // Tecla 'C' para ir a contacto (solo si no está en input)
-            if ((e.key === 'c' || e.key === 'C') && 
-                !e.metaKey && !e.ctrlKey &&
-                !isTyping()) {
-                scrollToContact();
-            }
-        });
-    }
-    
-    // ========== UTILIDADES ==========
-    function isMobile() {
-        return /Mobi|Android/i.test(navigator.userAgent);
-    }
-    
-    function isTyping() {
-        const activeEl = document.activeElement;
-        return activeEl && (
-            activeEl.tagName === 'INPUT' || 
-            activeEl.tagName === 'TEXTAREA' ||
-            activeEl.contentEditable === 'true'
-        );
-    }
-    
-    // ========== MOBILE MENU GLOBAL ==========
-    window.toggleMobileMenu = function() {
-        const navLinks = document.getElementById('navLinks');
-        if (navLinks) navLinks.classList.toggle('active');
-    };
-    
-})();
+        // Mobile Menu Toggle
+        window.toggleMobileMenu = function() {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks) navLinks.classList.toggle('active');
+        };
+        
+    })();
     </script>
 </body>
 </html>
