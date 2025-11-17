@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones - Diamar AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #0066FF;
+            --dark-blue: #0D1B2A;
+            --light-blue: #E6F0FF;
+            --text-dark: #1a1a1a;
+            --text-gray: #E6F0FF
+            --white: #0D1B2A;
+            --gradient: linear-gradient(135deg, #0066FF 0%, #0D1B2A 100%);
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background-color: #0d1b2a;
+            color: #f0f0f0;
+            overflow-x: hidden;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Header - Cambiado a azul oscuro con texto blanco */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #0D1B2A;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-diamond {
+            width: 25px;
+            height: 25px;
+            position: relative;
+            transform: rotate(45deg);
+            background: linear-gradient(135deg, #0066FF 0%, #020933 50%, #3741fa 100%);
+            border-radius: 3px;
+            box-shadow: 
+                0 0 10px rgba(0, 102, 255, 0.3),
+                0 0 20px rgba(6, 182, 212, 0.2);
+            animation: diamondBreathe 3s ease-in-out infinite;
+        }
+        
+        .logo-diamond::before {
+            content: '';
+            position: absolute;
+            top: 15%;
+            left: 15%;
+            width: 70%;
+            height: 70%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.1) 100%);
+            border-radius: 2px;
+        }
+        
+        .logo-diamond::after {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 25%;
+            height: 25%;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 1px;
+            transform: skew(-5deg, -5deg);
+        }
+        
+        .logo-text {
+            font-size: 25px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -1px;
+        }
+        
+      
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #0066FF;
+        }
+        
+        .cta-button {
+            background: var(--gradient);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 102, 255, 0.4);
+        }
+        
+        /* Menu hamburguesa para móviles */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        /* Content Section */
+        .content {
+            margin-top: 120px;
+            padding: 80px 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 0.6s;
+            color: var(--text-dark);
+        }
+
+        .back-button {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+        }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 102, 255, 0.4);
+        }
+
+        h1 {
+            font-size: 52px;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin: 40px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary-blue);
+        }
+
+        h3 {
+            font-size: 24px;
+            color: var(--primary-blue);
+            margin: 30px 0 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--text-gray);
+        }
+
+        .highlight {
+            background: var(--gradient);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .contact-info {
+            background: var(--light-blue);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        .contact-info h3 {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .important-notice {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 5px solid #f39c12;
+        }
+
+        .important-notice p {
+            color: #856404;
+        }
+
+       /* Footer simplificado */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .footer-column {
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* RESPONSIVE OPTIMIZATIONS FOR MOBILE */
+        @media (max-width: 768px) {
+            /* Header mobile */
+            nav {
+                padding: 0 15px;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: #0D1B2A;
+                flex-direction: column;
+                justify-content: flex-start;
+                padding-top: 40px;
+                gap: 40px;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links a {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .logo-text {
+                font-size: 20px;
+            }
+            
+            .logo-diamond {
+                width: 26px;
+                height: 26px;
+            }
+            
+            /* Hero mobile */
+            .hero {
+                padding: 60px 15px;
+                margin-top: 70px;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 32px;
+                line-height: 1.3;
+            }
+            
+            .hero-text p {
+                font-size: 18px;
+                margin-bottom: 25px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            
+            .hero-buttons a {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+                padding: 15px 20px;
+            }
+            
+            .hero-card {
+                padding: 30px 20px;
+            }
+            
+            .hero-card h3 {
+                font-size: 36px;
+            }
+            
+            /* Services mobile */
+            .services {
+                padding: 60px 15px;
+            }
+            
+            .section-header h2 {
+                font-size: 28px;
+            }
+            
+            .section-header p {
+                font-size: 16px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .service-card {
+                padding: 30px 20px;
+            }
+            
+            /* Stats mobile */
+            .stats {
+                padding: 50px 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .stat-item h3 {
+                font-size: 36px;
+            }
+            
+            .stat-item p {
+                font-size: 16px;
+            }
+            
+            /* Benefits mobile */
+            .benefits {
+                padding: 60px 15px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 15px;
+            }
+            
+            .benefit-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .benefit-card {
+                padding: 30px 20px;
+            }
+            
+            .benefit-card h3 {
+                font-size: 28px;
+            }
+            
+            /* Testimonials mobile */
+            .testimonials {
+                padding: 60px 15px;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .testimonial-card {
+                padding: 25px 20px;
+            }
+            
+            /* CTA mobile */
+            .cta-section {
+                padding: 60px 15px;
+            }
+            
+            .cta-content h2 {
+                font-size: 28px;
+            }
+            
+            .cta-content p {
+                font-size: 18px;
+            }
+            
+            .cta-white-button {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+            
+            /* Contact form mobile */
+            .contact-form-section {
+                padding: 60px 15px;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+                margin: 40px auto 0;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px; /* Prevents zoom on iOS */
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            }
+            
+            /* Trust bar mobile */
+            .trust-bar {
+                padding: 30px 15px;
+            }
+            
+            .trust-logos {
+                gap: 30px;
+            }
+            
+            .trust-logo {
+                font-size: 20px;
+            }
+        }
+        
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 28px;
+            }
+            
+            .hero-text p {
+                font-size: 16px;
+            }
+            
+            .section-header h2 {
+                font-size: 24px;
+            }
+            
+            .cta-content h2 {
+                font-size: 24px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .benefit-card h3 {
+                font-size: 24px;
+            }
+            
+            .form-container {
+                margin: 30px 10px 0;
+            }
+            
+            .logo-text {
+                font-size: 20px;
+            }
+            
+            .logo-diamond {
+                width: 25px;
+                height: 25px;
+            }
+        }
+        
+        /* Landscape orientation on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero {
+                padding: 40px 15px;
+            }
+            
+            .nav-links {
+                height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+        }  
+    </style>
+</head>
+<body>
+   <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-diamond"></div>
+                <a href="/" class="logo-text">DIAMAR AI</a>
+            </div>
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            <div class="nav-links" id="navLinks">
+                <a href="/#servicios">Servicios</a>
+                <a href="/#beneficios">Beneficios</a>
+                <a href="/#testimonios">Testimonios</a>
+                <a href="/#contacto" class="cta-button">Consulta</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="content">
+        <a href="/" class="back-button">← Volver al inicio</a>
+        
+        <h1>Términos y Condiciones</h1>
+
+        <div class="highlight">
+            <strong>Fecha de última actualización:</strong> Junio 2025
+        </div>
+
+        <h2>1. Aceptación de los Términos</h2>
+        <p>Al contactarse con Diamar AI, solicitar nuestros servicios de automatización, o firmar cualquier contrato con nosotros, usted acepta estar sujeto a estos Términos y Condiciones y a todas las leyes aplicables. Si no está de acuerdo con alguno de estos términos, no debe utilizar nuestros servicios.</p>
+
+        <h2>2. Descripción de los Servicios</h2>
+        <p>Diamar AI se especializa en:</p>
+        <ul>
+            <li><strong>Automatización de procesos empresariales</strong> - Implementación de flujos de trabajo automatizados</li>
+            <li><strong>Desarrollo e integración de chatbots inteligentes</strong> - Soluciones de atención 24/7 con IA</li>
+            <li><strong>Integración de sistemas</strong> - Conexión entre diferentes plataformas y herramientas</li>
+            <li><strong>Consultoría tecnológica</strong> - Diagnósticos y estrategias de digitalización</li>
+            <li><strong>Soporte y mantenimiento</strong> - Servicios continuos post-implementación</li>
+        </ul>
+        <p>Nos reservamos el derecho de modificar, actualizar o discontinuar cualquier aspecto de nuestros servicios previo aviso de 30 días.</p>
+
+        <h2>3. Proceso de Contratación</h2>
+        <h4>3.1 Consulta Inicial</h4>
+        <p>Ofrecemos una consulta gratuita de diagnóstico donde evaluamos las necesidades específicas de su empresa y proponemos soluciones personalizadas.</p>
+        
+        <h4>3.2 Propuesta y Contrato</h4>
+        <p>Después del diagnóstico, proporcionamos:</p>
+        <ul>
+            <li>Propuesta técnica detallada con alcance del proyecto</li>
+            <li>Cronograma de implementación con hitos específicos</li>
+            <li>Cotización con costos desglosados</li>
+            <li>Contrato formal con términos específicos del proyecto</li>
+        </ul>
+
+        <h4>3.3 Aceptación del Servicio</h4>
+        <p>El servicio se considera aceptado cuando el cliente firma el contrato y realiza el pago inicial acordado (generalmente 50% del valor total del proyecto).</p>
+
+        <h2>4. Obligaciones del Cliente</h2>
+        <p>Para garantizar el éxito del proyecto, el cliente se compromete a:</p>
+        <ul>
+            <li><strong>Proporcionar acceso necesario</strong> - A sistemas, cuentas y plataformas requeridas</li>
+            <li><strong>Designar un responsable interno</strong> - Persona de contacto para coordinación del proyecto</li>
+            <li><strong>Proporcionar información precisa</strong> - Datos, procesos actuales y requerimientos específicos</li>
+            <li><strong>Realizar pruebas y validaciones</strong> - En tiempos acordados durante el desarrollo</li>
+            <li><strong>Capacitar a su equipo</strong> - En el uso de las nuevas herramientas implementadas</li>
+            <li><strong>Cumplir con los pagos</strong> - Según calendario acordado en el contrato</li>
+        </ul>
+
+        <h2>5. Metodología de Trabajo</h2>
+        <h4>5.1 Fases del Proyecto</h4>
+        <p>Nuestros proyectos siguen una metodología estructurada:</p>
+        <ul>
+            <li><strong>Fase 1 - Análisis:</strong> Mapeo de procesos actuales y definición de requerimientos</li>
+            <li><strong>Fase 2 - Diseño:</strong> Arquitectura de la solución y flujos de automatización</li>
+            <li><strong>Fase 3 - Desarrollo:</strong> Implementación técnica y configuración de sistemas</li>
+            <li><strong>Fase 4 - Pruebas:</strong> Testing exhaustivo y ajustes necesarios</li>
+            <li><strong>Fase 5 - Despliegue:</strong> Puesta en producción y capacitación</li>
+            <li><strong>Fase 6 - Soporte:</strong> Período de garantía y optimización</li>
+        </ul>
+
+        <h4>5.2 Comunicación y Reportes</h4>
+        <p>Mantenemos comunicación constante mediante:</p>
+        <ul>
+            <li>Reuniones semanales de seguimiento</li>
+            <li>Reportes de avance cada 15 días</li>
+            <li>Canal directo de WhatsApp para consultas urgentes</li>
+            <li>Dashboard de proyecto con estado en tiempo real</li>
+        </ul>
+
+        <h2>6. Pagos y Facturación</h2>
+        <h4>6.1 Estructura de Pagos</h4>
+        <p>Los pagos se estructuran típicamente de la siguiente manera:</p>
+        <ul>
+            <li><strong>50% inicial</strong> - Al firmar el contrato</li>
+            <li><strong>25% intermedio</strong> - Al completar la fase de desarrollo</li>
+            <li><strong>25% final</strong> - Al entregar el proyecto completado</li>
+        </ul>
+
+        <h4>6.2 Métodos de Pago Aceptados</h4>
+        <p>Aceptamos los siguientes métodos de pago:</p>
+        <ul>
+            <li>Transferencia bancaria (método preferido)</li>
+            <li>Mercado Pago</li>
+            <li>Cheques (solo para montos superiores a $500.000 ARS)</li>
+            <li>Criptomonedas (USDT, Bitcoin) para clientes internacionales</li>
+        </ul>
+
+        <h4>6.3 Política de Reembolsos</h4>
+        <p>Los reembolsos se manejan según las siguientes condiciones:</p>
+        <ul>
+            <li><strong>100% de reembolso</strong> - Si cancelamos el proyecto por nuestra parte</li>
+            <li><strong>75% de reembolso</strong> - Si el cliente cancela antes del inicio del desarrollo</li>
+            <li><strong>50% de reembolso</strong> - Si el cliente cancela durante la fase de desarrollo</li>
+            <li><strong>Sin reembolso</strong> - Si el cliente cancela después de la entrega</li>
+        </ul>
+
+        <h2>7. Propiedad Intelectual y Confidencialidad</h2>
+        <h4>7.1 Trabajo Desarrollado</h4>
+        <p>La propiedad intelectual del trabajo desarrollado específicamente para el cliente le pertenece al cliente una vez completado el pago total del proyecto.</p>
+
+        <h4>7.2 Herramientas y Metodologías</h4>
+        <p>Las herramientas, metodologías, códigos base y conocimientos generales utilizados siguen siendo propiedad de Diamar AI.</p>
+
+        <h4>7.3 Confidencialidad Mutua</h4>
+        <p>Ambas partes se comprometen a:</p>
+        <ul>
+            <li>Mantener confidencial toda información sensible del negocio</li>
+            <li>No divulgar datos, procesos o estrategias a terceros</li>
+            <li>Usar la información únicamente para los fines del proyecto</li>
+            <li>Devolver o eliminar información confidencial al finalizar el proyecto</li>
+        </ul>
+
+        <h2>8. Garantías y Soporte</h2>
+        <h4>8.1 Período de Garantía</h4>
+        <p>Ofrecemos las siguientes garantías:</p>
+        <ul>
+            <li><strong>30 días de garantía total</strong> - Corrección gratuita de cualquier error o mal funcionamiento</li>
+            <li><strong>90 días de soporte técnico</strong> - Asistencia para dudas y optimizaciones menores</li>
+            <li><strong>6 meses de actualizaciones</strong> - Ajustes por cambios en APIs o plataformas integradas</li>
+        </ul>
+
+        <h4>8.2 Soporte Post-Implementación</h4>
+        <p>Después del período de garantía, ofrecemos:</p>
+        <ul>
+            <li>Contratos de mantenimiento mensual</li>
+            <li>Soporte por incidencias (facturado por horas)</li>
+            <li>Actualizaciones y mejoras (cotizadas por separado)</li>
+        </ul>
+
+        <h2>9. Limitaciones y Exclusiones</h2>
+        <div class="important-notice">
+            <p><strong>Importante:</strong> En la máxima medida permitida por la ley argentina, Diamar AI no será responsable por:</p>
+        </div>
+        <ul>
+            <li>Pérdidas de datos causadas por terceros o fallas en sistemas externos</li>
+            <li>Interrupciones de servicio debido a fallas en internet o servicios de terceros</li>
+            <li>Cambios en APIs o políticas de plataformas externas</li>
+            <li>Daños indirectos, lucro cesante o pérdidas comerciales</li>
+            <li>Mal uso de las herramientas implementadas por parte del cliente</li>
+        </ul>
+
+        <h2>10. Modificaciones y Cambios de Alcance</h2>
+        <h4>10.1 Cambios Menores</h4>
+        <p>Cambios menores (menos del 10% del alcance original) pueden incluirse sin costo adicional durante el desarrollo.</p>
+
+        <h4>10.2 Cambios Mayores</h4>
+        <p>Cambios significativos en el alcance requieren:</p>
+        <ul>
+            <li>Evaluación de impacto en tiempo y costo</li>
+            <li>Propuesta formal de modificación</li>
+            <li>Aprobación escrita del cliente</li>
+            <li>Ajuste en cronograma y presupuesto</li>
+        </ul>
+
+        <h2>11. Terminación del Contrato</h2>
+        <h4>11.1 Terminación por Parte del Cliente</h4>
+        <p>El cliente puede terminar el contrato en cualquier momento, sujeto a las políticas de reembolso establecidas.</p>
+
+        <h4>11.2 Terminación por Parte de Diamar AI</h4>
+        <p>Podemos terminar el contrato en caso de:</p>
+        <ul>
+            <li>Incumplimiento de pagos por más de 15 días</li>
+            <li>Falta de cooperación que impida el avance del proyecto</li>
+            <li>Solicitudes que violen términos de uso de plataformas terceras</li>
+            <li>Comportamiento inadecuado hacia nuestro equipo</li>
+        </ul>
+
+        <h2>12. Fuerza Mayor</h2>
+        <p>No seremos responsables por retrasos o incumplimientos causados por circunstancias fuera de nuestro control, incluyendo pero no limitado a:</p>
+        <ul>
+            <li>Desastres naturales o emergencias sanitarias</li>
+            <li>Fallas masivas de internet o servicios en la nube</li>
+            <li>Cambios regulatorios que afecten las plataformas utilizadas</li>
+            <li>Actos gubernamentales o situaciones de fuerza mayor</li>
+        </ul>
+
+        <h2>13. Resolución de Disputas</h2>
+        <p>En caso de controversias, las partes se comprometen a:</p>
+        <ul>
+            <li><strong>Negociación directa:</strong> Intentar resolver amigablemente en primera instancia</li>
+            <li><strong>Mediación:</strong> Si la negociación falla, recurrir a mediación</li>
+            <li><strong>Arbitraje:</strong> Como alternativa a los tribunales ordinarios</li>
+            <li><strong>Jurisdicción:</strong> Los tribunales de Corrientes, Argentina, tendrán jurisdicción exclusiva</li>
+        </ul>
+
+        <h2>14. Ley Aplicable</h2>
+        <p>Estos términos se rigen por las leyes de la República Argentina, incluyendo:</p>
+        <ul>
+            <li>Código Civil y Comercial de la Nación</li>
+            <li>Ley de Defensa del Consumidor N° 24.240</li>
+            <li>Ley de Protección de Datos Personales N° 25.326</li>
+            <li>Normativas provinciales de Corrientes aplicables</li>
+        </ul>
+
+        <h2>15. Comunicaciones Oficiales</h2>
+        <p>Todas las comunicaciones oficiales deben realizarse por escrito a través de:</p>
+        <ul>
+            <li><strong>Email principal:</strong> diamar.soporte@gmail.com</li>
+            <li><strong>WhatsApp empresarial:</strong> +54 9 3782 54-7720</li>
+            <li><strong>Para asuntos legales:</strong> Dirigirse específicamente al "Departamento Legal"</li>
+        </ul>
+
+        <h2>16. Vigencia y Modificaciones</h2>
+        <p>Estos términos y condiciones:</p>
+        <ul>
+            <li>Entran en vigencia desde la fecha de aceptación del primer servicio</li>
+            <li>Pueden ser modificados con 30 días de aviso previo</li>
+            <li>Las modificaciones no afectan proyectos ya contratados</li>
+            <li>El cliente será notificado de cambios vía email</li>
+        </ul>
+
+        <h2>17. Divisibilidad</h2>
+        <p>Si cualquier disposición de estos términos se considera inválida o inaplicable, las disposiciones restantes permanecerán en pleno vigor y efecto. La disposición inválida será reemplazada por una disposición válida que se acerque lo más posible al propósito económico de la disposición reemplazada.</p>
+
+    
+    </div>
+
+    <!-- Footer simplificado -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>DIAMAR</h3>
+                <div class="social-links">
+                    <a class="social-link" href="https://www.linkedin.com/company/diamar-ai" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a class="social-link" href="https://www.instagram.com/diamar.ai" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © Diamar <span id="year"></span>  —  Automatizaciones que impulsan tu negocio. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        // Año en footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
