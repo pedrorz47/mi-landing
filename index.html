@@ -803,7 +803,7 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
         }
         
-        /* Responsive */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
@@ -827,30 +827,47 @@
             .mobile-menu-toggle {
                 display: block;
             }
-
-            main {
-                padding: 60px 20px 80px;
+            
+            .hero {
+                padding: 60px 15px;
             }
-
-            h1 {
-                font-size: 32px;
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
             }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            h3 {
-                font-size: 18px;
-            }
-
-            .logo-text {
+            
+            .hero-text h1 {
                 font-size: 20px;
             }
-
-            .footer-links {
+            
+            .hero-buttons {
                 flex-direction: column;
-                gap: 15px;
+                align-items: center;
+            }
+            
+            .services-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .benefit-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+ 
+            .footer-links a {
+                font-size: 15px;
             }
         }
     </style>
@@ -1313,5 +1330,6 @@
     </script>
 </body>
 </html>
+
 
 
